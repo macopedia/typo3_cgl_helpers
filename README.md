@@ -25,5 +25,37 @@ option for JS files too.
 
 ## Disable Default PHPStorm inspections which are in conflict with Airbnb style
 1) Go to *Settings* => *Editor* => *Inspections*
-2) Look for *Unneeded last comma in object literal*
-3) Uncheck it
+2) Look for *Unneeded last comma in object literal* and *Unneeded last comma in array literal*
+3) Uncheck them
+
+## Some random notes on Airbnb styles
+We should have consistent indentation of the requirejs modules content (body of the function), independently from whether we have many (multiline) dependencies, or just a few. 
+This way if we add one additional dependency and would need to wrap them in few lines, we dont need to reformat the whole file.
+
+eg.
+```
+define(['jquery', 'd3', 'TYPO3/CMS/Backend/Icons'],
+  function ($, d3, Icons) {
+    'use strict';
+
+    var dd = 3;
+  });
+```
+```
+define(
+  [
+    'jquery',
+    'd3',
+    'TYPO3/CMS/Backend/ContextMenu',
+    'TYPO3/CMS/Backend/Modal',
+    'TYPO3/CMS/Backend/Severity',
+    'TYPO3/CMS/Backend/Notification',
+    'TYPO3/CMS/Backend/Icons',
+    'TYPO3/CMS/Lang/Lang',
+  ],
+  function ($, d3, ContextMenu, Modal, Severity, Notification, Icons) {
+    'use strict';
+
+    var dd = 3;
+  });
+```
