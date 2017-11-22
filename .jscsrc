@@ -1,5 +1,5 @@
 {
   "preset": "airbnb",
-  "maximumLineLength": 120,
+  "maximumLineLength": 150,
   "maxErrors": 150
 }
